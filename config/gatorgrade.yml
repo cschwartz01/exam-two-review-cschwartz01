@@ -1,0 +1,21 @@
+# perform checks on a file
+- writing/review.md:
+    - description: Ensure that the review.md file exists in the writing/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for review.md
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Write a minimum number of meaningful words in the reflection
+      check: CountFileWords
+      options:
+        count: 500
+        exact: false
+
+# confirm a suitable number of commit messages
+- description: Have at least a specific minimum of commits in repository
+  check: CountCommits
+  options:
+    count: 5
